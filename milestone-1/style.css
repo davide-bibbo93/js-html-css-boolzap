@@ -1,0 +1,71 @@
+/* common settings and general structure*/
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.fl{
+  float: left;
+}
+
+.fr{
+  float: right;
+}
+
+body{
+  font-family: 'Lato', sans-serif;
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+  height: 100vh;
+  background-image:
+  linear-gradient(to bottom,
+  #009688 0px,
+  #009688 15vh,
+  #dddbd1 15vh,
+  #d2dbdc 100%);
+}
+
+.container {
+  width: 80%;
+  min-width: 950px;
+  margin: auto;
+  height: 95%;
+}
+
+.left {
+  width: 35%;
+  background-color: yellow;
+  border-right: 1px solid blue;
+}
+
+.right {
+  width: 65%;
+}
+
+.left, .right {
+  float: left;
+  height: 100%;
+}
+
+.header-left,
+.header-right {
+  width: 100%;
+  height: 70px;
+  background-color: red;
+}
+
+.container-messages {
+  width: 100%;
+  height: calc(100% - 70px - 70px);
+}
+
+.footer {
+  width: 100%;
+  height: 70px;
+  background-color: green;
+}
+/* fine common settings and general structure*/
+
+/* inizio internal structure */
