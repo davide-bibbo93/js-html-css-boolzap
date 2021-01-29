@@ -42,6 +42,7 @@ body{
 
 .right {
   width: 65%;
+  position: relative;
 }
 
 .left, .right {
@@ -170,11 +171,51 @@ body{
   display: inline-block;
   color: lightgrey;
   border: 0;
+  cursor: pointer;
 }
 
 .contact-list {
   width: 100%;
   height: calc(100% - 60px - 50px - 80px);
-  background: #fff;
+  background-color: #fff;
   overflow-y: scroll;
 }
+
+.logo-contact {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 10px 20px;
+}
+
+.logo-contact img {
+  width: 100%;
+  height: 100%;
+}
+
+.contact-list .contact {
+  display: flex;
+  width: 100%;
+  height: 80px;
+  border-bottom: 1px solid lightgrey;
+  cursor: pointer;
+}
+
+.contact-list .contact:hover{
+  background-color: lightgrey;
+}
+
+.info-contact {
+  margin: 10px 10px 10px 0;
+}
+
+/* main message */
+.container-messages .messages {
+  width: 100%;
+  height: 100%;
+  background-image: url('img/mine.jpg');
+  overflow-y: scroll;
+}
+
+/* footer */
