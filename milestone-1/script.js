@@ -1,7 +1,7 @@
 new Vue({
   el: '#app',
   data: {
-    contactIndex = 0,
+    indexContact: 0,
     user: {
       name: 'Davide',
       avatar: '_io'
@@ -92,6 +92,10 @@ new Vue({
         },
     ]
   },
-  methods: {}
+  methods: {
+    changeContact: function(index) {
+      this.indexContact = index
+    }
+  }
 });
 Vue.config.devtools = true;

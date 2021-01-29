@@ -19,8 +19,8 @@
       <div class="left">
         <div class="header-left">
           <div class="logo-left fl">
-            <img src="img/avatar_io.jpg" alt="Nome Utente">
-            <h3>Nome Utente</h3>
+            <img :src="'img/avatar' + user.avatar + '.jpg'" :alt="user.name">
+            <h3>{{ user.name }}</h3>
           </div>
           <div class="icons-left fr">
             <i class="fas fa-circle-notch"></i>
@@ -50,13 +50,16 @@
 
         <!-- sezione contatti -->
         <div class="contact-list">
-          <div class="contact">
+          <div class="contact"
+            v-for="(contact, index) in contacts"
+            @click="changeContact(index)"
+            :class="index === indexContact ? 'active' : ''">
             <div class="logo-contact">
-              <img src="img/avatar_1.jpg" alt="Michele">
+              <img :src="'img/avatar' + contact.avatar + '.jpg'" :alt="contact.name">
             </div>
             <div class="info-contact">
               <h3>
-                <span class="name-contact-left">Michele</span>
+                <span class="name-contact-left">{{ contact.name }}</span>
               </h3>
             </div>
           </div>
