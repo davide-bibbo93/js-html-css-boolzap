@@ -69,11 +69,14 @@ body{
 /* fine common settings and general structure*/
 
 /* inizio internal structure */
+
+/* header top */
 .logo-left img,
 .logo-right img {
   width: 50px;
   height: 50px;
   margin: 10px 0 10px 10px;
+  border-radius: 50%;
 }
 
 .logo-left,
@@ -87,6 +90,91 @@ body{
   cursor: pointer;
 }
 
-.logo-left h3{
+.icons-left,
+.icons-right {
+  text-align: right;
+  width: auto;
+  margin-right: 20px;
+}
+
+.icons-left i,
+.icons-right i {
+  margin: 0 10px;
+  font-size: 20px;
+}
+
+.logo-left h3 {
   margin-left: 5px;
+}
+
+.logo-right h3 {
+  margin-left: 10px;
+}
+
+/* sidebar left (notice search and contacts)*/
+.notice-left {
+  display: flex;
+  width: 100%;
+  height: 70px;
+  background-color: azure;
+}
+
+.notice-left-logo {
+  width: 50px;
+  height: 50px;
+  margin: 10px 0 10px 20px;
+  border-radius: 50%;
+  background-color: orange;
+  text-align: center;
+  line-height: 50px;
+  font-size: 20px;
+  color: azure;
+}
+
+.notice-left-text {
+  padding: 0 10px;
+  margin: auto;
+  width: calc(100% - 50px);
+}
+
+.notice-left-text a {
+  font-size: 13px;
+  color: lightgrey;
+}
+
+.notice-left-text h3 {
+  font-size: 16px;
+}
+
+.search-left {
+  width: 100%;
+  height: 50px;
+  background-color: blue;
+}
+
+.search-left-input {
+  width: calc(90% - 7px);
+  margin: 7px 7px 7px 0;
+  height: 35px;
+  padding: 0 10px;
+  border: 0;
+}
+
+.search-label{
+  width: calc(10% - 7px);
+  margin: 7px 0 7px 7px;
+  height: 35px;
+  line-height: 35px;
+  text-align: center;
+  background-color: #fff;
+  display: inline-block;
+  color: lightgrey;
+  border: 0;
+}
+
+.contact-list {
+  width: 100%;
+  height: calc(100% - 60px - 50px - 80px);
+  background: #fff;
+  overflow-y: scroll;
 }
