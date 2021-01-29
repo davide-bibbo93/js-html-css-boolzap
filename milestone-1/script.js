@@ -1,8 +1,9 @@
 new Vue({
   el: '#app',
   data: {
+    contactIndex = 0,
     user: {
-      name: 'Nome Utente',
+      name: 'Davide',
       avatar: '_io'
     },
     contacts: [
@@ -93,3 +94,4 @@ new Vue({
   },
   methods: {}
 });
+Vue.config.devtools = true;
