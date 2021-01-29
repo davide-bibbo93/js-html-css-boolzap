@@ -219,3 +219,23 @@ body{
 }
 
 /* footer */
+.message-input {
+  width: 80%;
+  height: 50px;
+  margin: 10px 0;
+  border-radius: 7px;
+  font-size: 15px;
+  padding: 10px;
+}
+
+.footer-icons {
+  width: 10%;
+  height: auto;
+  text-align: center;
+  line-height: 65px;
+  font-size: 25px;
+}
+
+.footer-icons i {
+  cursor: pointer;
+}
