@@ -101,18 +101,19 @@ body{
 .icons-left i,
 .icons-right i {
   margin: 0 12px;
-  font-size: 20px;
+  font-size: 19px;
 }
 
 .logo-left h3 {
-  margin-left: 5px;
-}
-
-.logo-right h3 {
   margin-left: 10px;
 }
 
+.logo-right h3 {
+  margin-left: 15px;
+}
+
 .logo-right h3 .time {
+  font-size: 14px;
   color: grey;
 }
 /* sidebar left (notice search and contacts)*/
@@ -162,6 +163,7 @@ body{
   height: 35px;
   padding: 0 10px;
   border: 0;
+  font-size: 15px;
 }
 
 .search-label{
@@ -173,8 +175,12 @@ body{
   background-color: #fff;
   display: inline-block;
   color: lightgrey;
-  border: 0;
   cursor: pointer;
+}
+
+.search-label i {
+  padding-left: 5px;
+  font-size: 18px;
 }
 
 .contact-list {
@@ -236,7 +242,7 @@ body{
   height: auto;
   text-align: center;
   line-height: 65px;
-  font-size: 27px;
+  font-size: 26px;
 }
 
 .footer-icons i {
