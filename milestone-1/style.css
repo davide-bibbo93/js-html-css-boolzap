@@ -56,7 +56,7 @@ body{
   height: 70px;
 }
 
-.container-messages {
+.right .right-messages-container {
   width: 100%;
   height: calc(100% - 70px - 70px);
 }
@@ -220,7 +220,7 @@ body{
 }
 
 /* main message */
-.container-messages .messages {
+.right .right-messages {
   width: 100%;
   height: 100%;
   background-image: url('img/mine.jpg');
@@ -235,6 +235,7 @@ body{
   border-radius: 7px;
   font-size: 15px;
   padding: 10px;
+  border: 0;
 }
 
 .footer-icons {
@@ -246,5 +247,6 @@ body{
 }
 
 .footer-icons i {
+  color: grey;
   cursor: pointer;
 }
