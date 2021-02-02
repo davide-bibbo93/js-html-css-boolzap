@@ -100,10 +100,8 @@ new Vue({
     },
 
     contactLastDate: function(index) {
-      const messages = this.contacts[index].messages
-      const lastIndex = messages.length - 1
-      const lastDate = messages[lastIndex].date
-      return lastDate;
+
+      return this.contacts[index].messages[this.contacts[index].messages.length - 1].date;
     },
 
     sendMessage: function() {
