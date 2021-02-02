@@ -109,6 +109,7 @@ new Vue({
       if (this.newMessage.length !== 0) {
         // creo nuovo oggetto messaggio
         let newMessageObj = {
+          date: '10/01/2020 16:15:22',
           message: this.newMessage,
           status: 'sent'
         };
@@ -123,6 +124,7 @@ new Vue({
         setTimeout( function() {
           // creo nuovo oggetto messaggio bot
           let botMessage = {
+            date: '10/01/2020 16:15:23',
             message: 'ok',
             status: 'received'
           };
