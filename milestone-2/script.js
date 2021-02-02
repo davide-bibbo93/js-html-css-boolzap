@@ -94,8 +94,8 @@ new Vue({
   },
   methods: {
     changeContact: function(index) {
-      this.indexContact = index
-    }
+      this.indexContact = index;
+    },
   }
 });
 Vue.config.devtools = true;
