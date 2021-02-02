@@ -107,9 +107,10 @@ new Vue({
     sendMessage: function() {
 
       if (this.newMessage.length !== 0) {
+        let date = new Date().toLocaleString();
         // creo nuovo oggetto messaggio
         let newMessageObj = {
-          date: '10/01/2020 16:15:22',
+          date: date,
           message: this.newMessage,
           status: 'sent'
         };
@@ -122,9 +123,10 @@ new Vue({
 
         // arriiva la risposta del bot dopo un secondo
         setTimeout( function() {
+          date = new Date().toLocaleString();
           // creo nuovo oggetto messaggio bot
           let botMessage = {
-            date: '10/01/2020 16:15:23',
+            date: date,
             message: 'ok',
             status: 'received'
           };
