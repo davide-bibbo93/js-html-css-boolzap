@@ -123,6 +123,7 @@ new Vue({
 
         // arriiva la risposta del bot dopo un secondo
         setTimeout( function() {
+          // messo anche qui l'ora effettiva se no si crea un ritardo 
           date = new Date().toLocaleString();
           // creo nuovo oggetto messaggio bot
           let botMessage = {
