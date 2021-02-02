@@ -60,6 +60,7 @@
             <div class="info-contact">
               <h3>
                 <span>{{ contact.name }}</span>
+                <span class="time fr"></span>
               </h3>
             </div>
           </div>
@@ -75,7 +76,7 @@
             <img :src="'img/avatar' + contacts[indexContact].avatar + '.jpg'" alt="">
             <h3>
               <span>{{ contacts[indexContact].name }}</span> <br>
-              <small class="time">Ultimo accesso alle ore 15:00</small>
+              <small class="time">Ultimo accesso il {{ contactLastDate(indexContact) }}</small>
             </h3>
           </div>
           <div class="icons-right fr">
@@ -94,7 +95,7 @@
               :class="msg_object.status">
               <span class="msg-text">{{ msg_object.message }}</span>
               <!-- qui ci andremo a mettere il tempo di invio del messaggio -->
-              <span></span>
+              <span class="msg-time"></span>
             </div>
           </div>
         </div>

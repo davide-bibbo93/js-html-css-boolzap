@@ -94,35 +94,45 @@ new Vue({
     ]
   },
   methods: {
-    
+
     changeContact: function(index) {
       this.indexContact = index;
     },
 
-    sendMessage: function() {
-      // creo nuovo oggetto messaggio
-      let newMessageObj = {
-        message: this.newMessage,
-        status: 'sent'
-      };
-      // prendo array dei messaggi precedenti,
-      // metto il nuovo oggetto messaggio dentro l'array dei messaggi precedenti
-      // e poi resetto l'input
-      let chat = this.contacts[this.indexContact].messages;
-      chat.push(newMessageObj);
-      this.newMessage = '';
+    contactLastDate: function(index) {
+      const messages = this.contacts[index].messages
+      const lastIndex = messages.length - 1
+      const lastDate = messages[lastIndex].date
+      return lastDate;
+    },
 
-      // arriiva la risposta del bot dopo un secondo
-      setTimeout( function() {
-        // creo nuovo oggetto messaggio bot
-        let botMessage = {
+    sendMessage: function() {
+
+      if (this.newMessage.length !== 0) {
+        // creo nuovo oggetto messaggio
+        let newMessageObj = {
+          message: this.newMessage,
+          status: 'sent'
+        };
+        // prendo array dei messaggi precedenti,
+        // metto il nuovo oggetto messaggio dentro l'array dei messaggi precedenti
+        // e poi resetto l'input
+        let chat = this.contacts[this.indexContact].messages;
+        chat.push(newMessageObj);
+        this.newMessage = '';
+
+        // arriiva la risposta del bot dopo un secondo
+        setTimeout( function() {
+          // creo nuovo oggetto messaggio bot
+          let botMessage = {
             message: 'ok',
             status: 'received'
-        };
-        // e metto il nuovo oggetto messaggio bot nell'array dei messaggi precedenti
-        chat.push(botMessage);
+          };
+          // e metto il nuovo oggetto messaggio bot nell'array dei messaggi precedenti
+          chat.push(botMessage);
 
-      }, 1000);
+        }, 1000);
+      }
     },
   },
 });

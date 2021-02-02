@@ -112,7 +112,7 @@ body{
   margin-left: 15px;
 }
 
-.logo-right h3 .time {
+.logo-right h3 small {
   font-size: 14px;
   color: grey;
 }
@@ -216,16 +216,22 @@ body{
 }
 
 .info-contact {
+  width: calc(100% - 50px);
   margin: 10px 10px 10px 0;
 }
 
+.info-contact .time {
+  font-size: 10px;
+  color: grey;
+  line-height: 20px;
+}
 /* main message */
 .right .right-messages {
   height: 100%;
   width: 100%;
   background-image: url('img/mine.jpg');
   overflow-y: scroll;
-  padding: 7% 12%;
+  padding: 6% 8%;
 }
 
 .right .right-messages .message {
@@ -233,10 +239,10 @@ body{
   min-width: 40%;
   max-width: 60%;
   margin: 5px 0;
-  padding: 12px 15px 18px 15px;
+  padding: 12px 15px 22px 15px;
   border-radius: 8px;
   background-color: #fff;
-  font-size: 13px;
+  font-size: 15px;
 }
 
 .right .right-messages .message::after {
@@ -256,6 +262,14 @@ body{
   float: right;
   clear: both;
   background-color: #D5F9BA;
+}
+
+.right .right-messages .msg-time {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  font-size: 8px;
+  color: grey;
 }
 
 /* footer */
