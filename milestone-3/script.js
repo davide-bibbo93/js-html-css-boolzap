@@ -3,7 +3,6 @@ new Vue({
   data: {
     indexContact: 0,
     newMessage: '',
-    textSearch: '',
     user: {
       name: 'Davide',
       avatar: '_io'
@@ -146,17 +145,6 @@ new Vue({
           that.autoReply()
         }, 1000);
       }
-    },
-    search: function() {
-      this.contacts.forEach((contact) => {
-        let contactName = contact.name.toLowerCase();
-        let searchName = this.textSearch.toLowerCase();
-        if (contactName.includes(searchName)) {
-          contact.visible = true;
-        } else {
-          contact.visible = false;
-        }
-      });
     },
   },
 });
