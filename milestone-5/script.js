@@ -4,8 +4,6 @@ new Vue({
     indexContact: 0,
     newMessage: '',
     textSearch: '',
-    index: 0,
-    active: "active",
     user: {
       name: 'Davide',
       avatar: '_io'
@@ -19,17 +17,17 @@ new Vue({
                 {
                     date: '10/01/2020 15:30:55',
                     message: 'Hai portato a spasso il cane?',
-                    status: 'sent'
+                    status: 'sent',
                 },
                 {
                     date: '10/01/2020 15:50:00',
                     message: 'Ricordati di dargli da mangiare',
-                    status: 'sent'
+                    status: 'sent',
                 },
                 {
                     date: '10/01/2020 16:15:22',
                     message: 'Tutto fatto!',
-                    status: 'received'
+                    status: 'received',
                 }
             ],
         },
@@ -41,17 +39,17 @@ new Vue({
                 {
                     date: '20/03/2020 16:30:00',
                     message: 'Ciao come stai?',
-                    status: 'sent'
+                    status: 'sent',
                 },
                 {
                     date: '20/03/2020 16:30:55',
                     message: 'Bene grazie! Stasera ci vediamo?',
-                    status: 'received'
+                    status: 'received',
                 },
                 {
                     date: '20/03/2020 16:35:00',
                     message: 'Mi piacerebbe ma devo andare a fare la spesa.',
-                    status: 'sent'
+                    status: 'sent',
                 }
             ],
         },
@@ -63,17 +61,17 @@ new Vue({
                 {
                     date: '28/03/2020 10:10:40',
                     message: 'La Marianna va in campagna',
-                    status: 'received'
+                    status: 'received',
                 },
                 {
                     date: '28/03/2020 10:20:10',
                     message: 'Sicuro di non aver sbagliato chat?',
-                    status: 'sent'
+                    status: 'sent',
                 },
                 {
                     date: '28/03/2020 16:15:22',
                     message: 'Ah scusa!',
-                    status: 'received'
+                    status: 'received',
                 }
             ],
         },
@@ -85,12 +83,12 @@ new Vue({
                 {
                     date: '10/01/2020 15:30:55',
                     message: 'Lo sai che ha aperto una nuova pizzeria?',
-                    status: 'sent'
+                    status: 'sent',
                 },
                 {
                     date: '10/01/2020 15:50:00',
                     message: 'Si, ma preferirei andare al cinema',
-                    status: 'received'
+                    status: 'received',
                 }
             ],
         },
@@ -103,7 +101,10 @@ new Vue({
     },
 
     contactLastDate: function(index) {
-      return this.contacts[index].messages[this.contacts[index].messages.length - 1].date;
+      const messages = this.contacts[index].messages
+      const lastIndex = messages.length - 1
+      const lastDate = messages[lastIndex].date
+      return lastDate;
     },
 
     currentDate: function () {
@@ -113,12 +114,17 @@ new Vue({
       return dateString;
     },
 
+    // mettendo la cdn day.js, mi esce "invalid date"
+    // getTime(dateString) {
+    //   return dayjs(dateString, "DD/MM/YYYY HH:mm:ss").format('HH:mm');
+    // },
+
     autoReply: function () {
       // creo nuovo oggetto messaggio bot
       let botMessage = {
         date: this.currentDate(),
         message: 'ok',
-        status: 'received'
+        status: 'received',
       };
       let chat = this.contacts[this.indexContact].messages;
       // e metto il nuovo oggetto messaggio bot nell'array dei messaggi precedenti
@@ -133,7 +139,7 @@ new Vue({
         let newMessageObj = {
           date: this.currentDate(),
           message: this.newMessage,
-          status: 'sent'
+          status: 'sent',
         };
         // prendo array dei messaggi precedenti,
         // metto il nuovo oggetto messaggio dentro l'array dei messaggi precedenti
@@ -149,6 +155,7 @@ new Vue({
         }, 1000);
       }
     },
+
     search: function() {
       this.contacts.forEach((contact) => {
         let contactName = contact.name.toLowerCase();
@@ -160,6 +167,15 @@ new Vue({
         }
       });
     },
+
+    lastMsg: function(contact) {
+      return contact.messages[contact.messages.length - 1].message;
+    },
+
+    lastMsgTime: function(contact) {
+      return contact.messages[contact.messages.length - 1].date;
+    },
+
     
   },
 });

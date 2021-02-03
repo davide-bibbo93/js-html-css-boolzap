@@ -54,7 +54,7 @@
         <!-- sezione contatti -->
         <div class="contact-list">
           <div class="contact"
-          v-if="contact.visible"
+            v-if="contact.visible"
             v-for="(contact, index) in contacts"
             @click="changeContact(index)"
             :class="index === indexContact ? 'active' : ''">
@@ -64,11 +64,15 @@
             <div class="info-contact">
               <h3>
                 <span>{{ contact.name }}</span>
-                <span class="time fr"></span>
+                <span class="time fr">{{ lastMsgTime(contact) }}</span>
+                <div class="last-msg">
+                  {{ lastMsg(contact) }}
+                </div>
               </h3>
             </div>
           </div>
         </div>
+
       </div>
       <!-- fine parte sinistra -->
 
@@ -102,13 +106,10 @@
               <span class="msg-time">{{ msg_object.date }}</span>
 
               <!-- opzioni messaggio -->
-              <i class="fa fa-chevron-down fr icon-message"></i>
-              <div class="option-message">
-                <div class="info-message" >
-                  Info Messaggio
-                </div>
-                <div class="delete-message">
-                  Cancella Messaggio
+              <div class="icon fr"><i class="fa fa-angle-down" aria-hidden="true"></i>
+                <div class="dropdown-message">
+                  <div>Info Messaggio</div>
+                  <div>Cancella Messaggio</div>
                 </div>
               </div>
               <!-- fine opzioni messaggio -->
