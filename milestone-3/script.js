@@ -3,6 +3,7 @@ new Vue({
   data: {
     indexContact: 0,
     newMessage: '',
+    textSearch: '',
     user: {
       name: 'Davide',
       avatar: '_io'
@@ -121,7 +122,7 @@ new Vue({
       // e metto il nuovo oggetto messaggio bot nell'array dei messaggi precedenti
       chat.push(botMessage);
     },
-    
+
     sendMessage: function() {
 
       if (this.newMessage.length !== 0) {
@@ -145,6 +146,17 @@ new Vue({
           that.autoReply()
         }, 1000);
       }
+    },
+    search: function() {
+      this.contacts.forEach((contact) => {
+        let contactName = contact.name.toLowerCase();
+        let searchName = this.textSearch.toLowerCase();
+        if (contactName.includes(searchName)) {
+          contact.visible = true;
+        } else {
+          contact.visible = false;
+        }
+      });
     },
   },
 });

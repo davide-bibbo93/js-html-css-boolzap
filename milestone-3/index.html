@@ -45,12 +45,16 @@
           <label class="search-label" for="search">
             <i class="fa fa-search" aria-hidden="true"></i>
           </label>
-          <input class="search-left-input fr" placeholder="Cerca o inizia una nuova chat" name="search">
+          <input class="search-left-input fr"
+          @keyup="search"
+          v-model="textSearch"
+          placeholder="Cerca o inizia una nuova chat" name="search">
         </div>
 
         <!-- sezione contatti -->
         <div class="contact-list">
           <div class="contact"
+            v-if="contact.visible"
             v-for="(contact, index) in contacts"
             @click="changeContact(index)"
             :class="index === indexContact ? 'active' : ''">
