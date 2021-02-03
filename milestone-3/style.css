@@ -243,6 +243,7 @@ body{
   border-radius: 8px;
   background-color: #fff;
   font-size: 15px;
+  word-break: break-all;
 }
 
 .right .right-messages .message::after {

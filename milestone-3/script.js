@@ -100,17 +100,35 @@ new Vue({
     },
 
     contactLastDate: function(index) {
-
       return this.contacts[index].messages[this.contacts[index].messages.length - 1].date;
     },
 
+    currentDate: function () {
+      const d = new Date();
+      let dateString = d.toLocaleString();
+      dateString = dateString.replace(',', '')
+      return dateString;
+    },
+
+    autoReply: function () {
+      // creo nuovo oggetto messaggio bot
+      let botMessage = {
+        date: this.currentDate(),
+        message: 'ok',
+        status: 'received'
+      };
+      let chat = this.contacts[this.indexContact].messages;
+      // e metto il nuovo oggetto messaggio bot nell'array dei messaggi precedenti
+      chat.push(botMessage);
+    },
+    
     sendMessage: function() {
 
       if (this.newMessage.length !== 0) {
-        let date = new Date().toLocaleString();
+
         // creo nuovo oggetto messaggio
         let newMessageObj = {
-          date: date,
+          date: this.currentDate(),
           message: this.newMessage,
           status: 'sent'
         };
@@ -121,19 +139,10 @@ new Vue({
         chat.push(newMessageObj);
         this.newMessage = '';
 
+        let that = this;
         // arriiva la risposta del bot dopo un secondo
         setTimeout( function() {
-          // messo anche qui l'ora effettiva se no si crea un ritardo 
-          date = new Date().toLocaleString();
-          // creo nuovo oggetto messaggio bot
-          let botMessage = {
-            date: date,
-            message: 'ok',
-            status: 'received'
-          };
-          // e metto il nuovo oggetto messaggio bot nell'array dei messaggi precedenti
-          chat.push(botMessage);
-
+          that.autoReply()
         }, 1000);
       }
     },
