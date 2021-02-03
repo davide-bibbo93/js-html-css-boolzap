@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+      <meta charset="utf-8">
+      <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
+      integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp"
+      crossorigin="anonymous">
+      <link rel="stylesheet" href="style.css">
+      <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+      <title>js-html-css-boolzap</title>
+  </head>
+  <body>
+    <!-- contenitore totale -->
+    <div id="app" class="container">
+      <!-- inizio parte sinistra -->
+
+      <!-- sezione logo e nome utente -->
+      <div class="left">
+        <div class="header-left">
+          <div class="logo-left fl">
+            <img :src="'img/avatar' + user.avatar + '.jpg'" :alt="user.name">
+            <h3>{{ user.name }}</h3>
+          </div>
+          <div class="icons-left fr">
+            <i class="fas fa-circle-notch"></i>
+            <i class="fas fa-comment-alt"></i>
+            <i class="fas fa-ellipsis-v"></i>
+          </div>
+        </div>
+
+        <!-- sezione notifiche -->
+        <div class="notice-left">
+          <div class="notice-left-logo">
+            <i class="fa fa-bell-slash" aria-hidden="true"></i>
+          </div>
+          <div class="notice-left-text">
+            <h3>Ricevi notifiche di nuovi messaggi</h3>
+            <a href="#">Attiva notifiche desktop</a>
+          </div>
+        </div>
+
+        <!-- sezione ricerca -->
+        <div class="search-left">
+          <label class="search-label" for="search">
+            <i class="fa fa-search" aria-hidden="true"></i>
+          </label>
+          <input class="search-left-input fr"
+          @keyup="search"
+          v-model="textSearch"
+          placeholder="Cerca o inizia una nuova chat" name="search">
+        </div>
+
+        <!-- sezione contatti -->
+        <div class="contact-list">
+          <div class="contact"
+          v-if="contact.visible"
+            v-for="(contact, index) in contacts"
+            @click="changeContact(index)"
+            :class="index === indexContact ? 'active' : ''">
+            <div class="logo-contact">
+              <img :src="'img/avatar' + contact.avatar + '.jpg'" :alt="contact.name">
+            </div>
+            <div class="info-contact">
+              <h3>
+                <span>{{ contact.name }}</span>
+                <span class="time fr"></span>
+              </h3>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- fine parte sinistra -->
+
+      <!-- inizio parte destra -->
+      <div class="right">
+        <!-- sezione logo ed ultimo accesso -->
+        <div class="header-right">
+          <div class="logo-right fl">
+            <img :src="'img/avatar' + contacts[indexContact].avatar + '.jpg'" alt="">
+            <h3>
+              <span>{{ contacts[indexContact].name }}</span> <br>
+              <small class="time">Ultimo accesso il {{ contactLastDate(indexContact) }}</small>
+            </h3>
+          </div>
+          <div class="icons-right fr">
+            <i class="fas fa-search"></i>
+            <i class="fas fa-paperclip"></i>
+            <i class="fas fa-ellipsis-v"></i>
+          </div>
+        </div>
+
+        <!-- sezione main messages -->
+        <div class="right-messages-container">
+          <div class="right-messages">
+            <div
+              v-for="msg_object in contacts[indexContact].messages"
+              class="message"
+              :class="msg_object.status">
+              <span class="msg-text">{{ msg_object.message }}</span>
+              <!-- qui ci andremo a mettere il tempo di invio del messaggio -->
+              <span class="msg-time">{{ msg_object.date }}</span>
+
+              <!-- opzioni messaggio -->
+              <i class="fa fa-chevron-down fr icon-message"></i>
+              <div class="option-message">
+                <div class="info-message" >
+                  Info Messaggio
+                </div>
+                <div class="delete-message">
+                  Cancella Messaggio
+                </div>
+              </div>
+              <!-- fine opzioni messaggio -->
+
+            </div>
+          </div>
+        </div>
+        <!-- sezione footer -->
+        <div class="footer">
+          <div class="footer-icons fl">
+            <i class="far fa-smile"></i>
+          </div>
+          <input v-model="newMessage" @keyup.enter="sendMessage" class="message-input" placeholder="Scrivi un messaggio">
+          <div class="footer-icons fr">
+            <i class="fa fa-microphone" aria-hidden="true"></i>
+          </div>
+        </div>
+      </div>
+      <!-- fine parte destra -->
+    </div>
+    <!-- fine contenitore totale -->
+
+    <!-- Script -->
+    <script src="script.js" charset="utf-8"></script>
+  </body>
+</html>
