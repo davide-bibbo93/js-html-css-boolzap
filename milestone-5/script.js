@@ -108,22 +108,10 @@ new Vue({
       return lastDate;
     },
 
-    currentDate: function () {
-      const d = new Date();
-      let dateString = d.toLocaleString();
-      dateString = dateString.replace(',', '')
-      return dateString;
-    },
-
-    // mettendo la cdn day.js, mi esce "invalid date"
-    // getTime(dateString) {
-    //   return dayjs(dateString, "DD/MM/YYYY HH:mm:ss").format('HH:mm');
-    // },
-
     autoReply: function () {
       // creo nuovo oggetto messaggio bot
       let botMessage = {
-        date: this.currentDate(),
+        date: dayjs().format("HH:mm"),
         message: 'ok',
         status: 'received',
       };
@@ -138,7 +126,7 @@ new Vue({
 
         // creo nuovo oggetto messaggio
         let newMessageObj = {
-          date: this.currentDate(),
+          date: dayjs().format("HH:mm"),
           message: this.newMessage,
           status: 'sent',
         };
