@@ -96,11 +96,12 @@ new Vue({
     ]
   },
   methods: {
-
+    // funzione cambio contatto nella lista contatti
     changeContact: function(index) {
       this.indexContact = index;
     },
 
+    // data dell'ultimo accesso del contatto selezionato
     contactLastDate: function(index) {
       const messages = this.contacts[index].messages
       const lastIndex = messages.length - 1
@@ -108,6 +109,7 @@ new Vue({
       return lastDate;
     },
 
+    // risposta del bot
     autoReply: function () {
       // creo nuovo oggetto messaggio bot
       let botMessage = {
@@ -120,8 +122,8 @@ new Vue({
       chat.push(botMessage);
     },
 
+    // funzione di invio messaggio
     sendMessage: function() {
-
       if (this.newMessage.length !== 0) {
 
         // creo nuovo oggetto messaggio
@@ -145,6 +147,7 @@ new Vue({
       }
     },
 
+    // funzione di cerca contatti
     search: function() {
       this.contacts.forEach((contact) => {
         let contactName = contact.name.toLowerCase();
@@ -157,15 +160,17 @@ new Vue({
       });
     },
 
+    // ultimo messaggio del contatto nella lsta contatti
     lastMsg: function(contact) {
       return contact.messages[contact.messages.length - 1].message;
     },
 
+    // ultimo data messaggio del contatto nella lista comtatti
     lastMsgTime: function(contact) {
       return contact.messages[contact.messages.length - 1].date;
     },
 
-    // non funziona delete
+    // non funziona delete messaggi
     deleteMessage: function (index) {
       this.contacts[this.indexContact].messages.splice(index, 1);
       console.log(index);
