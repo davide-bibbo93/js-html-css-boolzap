@@ -4,6 +4,7 @@ new Vue({
     indexContact: 0,
     newMessage: '',
     textSearch: '',
+    activeMessage: false,
     user: {
       name: 'Davide',
       avatar: '_io'
@@ -176,7 +177,12 @@ new Vue({
       return contact.messages[contact.messages.length - 1].date;
     },
 
-    
+    // non funziona delete
+    deleteMessage: function (index) {
+      this.contacts[this.indexContact].messages.splice(index, 1);
+      console.log(index);
+    },
+
   },
 });
 Vue.config.devtools = true;

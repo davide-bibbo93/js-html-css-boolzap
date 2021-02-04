@@ -106,10 +106,10 @@
               <span class="msg-time">{{ msg_object.date }}</span>
 
               <!-- opzioni messaggio -->
-              <div class="icon fr"><i class="fa fa-angle-down" aria-hidden="true"></i>
-                <div class="dropdown-message">
+              <div class="icon fr" @click="activeMessage = !activeMessage"><i class="fa fa-angle-down" aria-hidden="true"></i>
+                <div class="dropdown-message" v-if="activeMessage">
                   <div>Info Messaggio</div>
-                  <div>Cancella Messaggio</div>
+                  <div @click="deleteMessage(index)">Cancella Messaggio</div>
                 </div>
               </div>
               <!-- fine opzioni messaggio -->
