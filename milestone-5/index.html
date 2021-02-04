@@ -104,7 +104,7 @@
         <div class="right-messages-container">
           <div class="right-messages">
             <div
-              v-for="msg_object in contacts[indexContact].messages"
+              v-for="(msg_object,indice) in contacts[indexContact].messages"
               class="message"
               :class="msg_object.status">
               <span class="msg-text">{{ msg_object.message }}</span>
@@ -115,7 +115,7 @@
               <div class="icon fr" @click="activeMessage = !activeMessage"><i class="fa fa-angle-down" aria-hidden="true"></i>
                 <div class="dropdown-message" v-if="activeMessage">
                   <div>Info Messaggio<i class="fas fa-info"></i></div>
-                  <div @click="deleteMessage(index)">Cancella Messaggio<i class="far fa-trash-alt" ></i></div>
+                  <div @click="deleteMessage(indice)">Cancella Messaggio<i class="far fa-trash-alt" ></i></div>
                 </div>
               </div>
               <!-- fine opzioni messaggio -->
